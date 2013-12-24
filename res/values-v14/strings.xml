@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">华通明略</string>
+   <drawable name="background_color">#e58e25</drawable>
+    <string name="menu_settings">Settings</string>
+
+</resources>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+    <head>
+        <title>内参资讯</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="stylesheet" type="text/css" href="style/style1/css/main.css"/>
+        <script type="text/javascript" src="js/cordova-2.3.0.js"></script>	
+		<script type="text/javascript" src="js/database.js"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script> 
+        <script type="text/javascript" src="js/jQuery.min.1.7.1.js"></script>        
+        <script type="text/javascript" src="js/main.js"></script>         
+        <script type="text/javascript" src="js/indAlist.js"></script>  
+        <script type="text/javascript" src="js/brandz.js"></script>                    
+    </head>
+    <body>
+        <div id="header">
+             <div class="head-title">
+                <div class="logo"><img src="style/style1/imgs/logo.png"></div>            
+                <div class="title">BrandZ</div>
+                <div class="refresh" onClick="refreshThis()"><img src="style/style1/imgs/refresh_top.jpg"></div>
+            </div>
+            <ul id="head-nav" class="nav">
+                <li id="89" onClick="newsList(this.id)"><span>2013中国top50</span></li>
+                <li id="90" onClick="newsList(this.id)"><span>2012中国top50</span></li>
+                <li id="91" onClick="newsList(this.id)"><span>2011中国top50</span></li>
+                <li id="92" onClick="newsList(this.id)"><span>BrandZ top100</span></li>
+            </ul>
+        </div>
+        <div id="wrapper" style="overflow:hidden; top:6em">       	
+            <div id="scroller">
+            	<div class="titlepage"><img src="style/style1/imgs/banner02.jpg"></div>
+                <ul id="thelist" style="margin-top:0px;">
+                </ul>
+                <div id="more" class="7" onclick="obtainMore(this)" style="display:none;">查看更多...</div>
+            </div> 
+        </div>
+        <div id="footer">
+            <a class="ft-homeed" href="index.html"><img src="style/style1/imgs/home.png" class="bottompic" /><div class="bottomText">热点资讯</div></a>
+            <a class="ft-menu" href="insight.html"><img src="style/style1/imgs/menu.png" class="bottompic" /><div class="bottomText">财经要闻</div></a>
+            <a class="ft-info" href="solutions.html"><img src="style/style1/imgs/tools.png" class="bottompic" /><div class="bottomText">内参资讯</div></a>
+            <a class="ft-home" href="login.html"><img src="style/style1/imgs/info.png" class="bottompic" /><div class="bottomText">用户中心</div></a>
+            <a class="ft-set" href="set.html"><img src="style/style1/imgs/set.png" class="bottompic" /><div class="bottomText">联系我们</div></a>
+        </div>          
+    </body>
+</html>

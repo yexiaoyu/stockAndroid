@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>imgshow</title>
+  <script type="text/javascript" src="js/cordova-2.3.0.js"></script>		
+  <script type="text/javascript" src="js/jQuery.min.1.7.1.js"></script>       
+  <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body style="margin:0px; padding:0px;">
+<img />
+<script>
+document.addEventListener("deviceready", onDeviceReady, false);	
+function onDeviceReady(){
+	document.addEventListener("backbutton", back_pre, false);
+	var imgsrc=window.localStorage.getItem("imgsrc");
+	$("img").attr("src",imgsrc);
+}
+</script>
+</body>
+</html>

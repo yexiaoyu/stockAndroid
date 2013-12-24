@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <title>财经要闻</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="stylesheet" type="text/css" href="style/style1/css/main.css"/>
+        <script type="text/javascript" src="js/cordova-2.3.0.js"></script>	
+		<script type="text/javascript" src="js/database.js"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script> 
+        <script type="text/javascript" src="js/jQuery.min.1.7.1.js"></script> 
+        <script type="text/javascript" src="js/clipboardmanager.js"></script>       
+        <script type="text/javascript" src="js/main.js"></script>         
+        <script type="text/javascript" src="js/activity.js"></script>                            
+    </head>
+    <body>
+        <div id="header">
+             <div class="btn-back">
+                <a class="btn-l"></a>
+                <a class="btn-c" onClick="back_pre()">返回</a>
+                <a class="btn-r"></a>
+            </div>
+            <h1 class="head-title">市场活动<a class="Comment share" onClick="shareThis()">分享</a><a class="Comment" href="pllist.html">评论</a></h1>
+            <ul id="head-nav" class="nav">
+                <li id="150" onClick="newsList(this.id)"><span>大会简介</span></li>
+                <li id="94" onClick="newsList(this.id)"><span>注册参会</span></li>
+            </ul>
+        </div>
+        <div id="wrapper" style="overflow:hidden; bottom:5em;">
+            <div id="scroller" style="background:white;">
+            	<div id="thelist" style="margin-top:0px; padding-bottom:2em; min-height:28em;"></div>
+            </div>
+        </div>
+       	<div id="publish">
+			<input id="pltext" class="publishText" value="轻点此处发表您的评论" onFocus="clearValue()" onBlur="invalue()" />
+            <input type="button" class="subcom" value="发表" onClick="plCreate()" >
+        </div>
+        <div id="footer">
+            <a id="indexbot"  href="index.html"><img src="style/style1/imgs/home.png" class="bottompic" /><div class="bottomText">热点资讯</div></a>
+            <a id="insightbot" class="ft-menu" href="insight.html"><img src="style/style1/imgs/menu.png" class="bottompic" /><div class="bottomText">财经要闻</div></a>
+            <a id="solutionbot" class="ft-info" href="solutions.html"><img src="style/style1/imgs/tools.png" class="bottompic" /><div class="bottomText">内参资讯</div></a>
+            <a class="ft-home" href="login.html"><img src="style/style1/imgs/info.png" class="bottompic" /><div class="bottomText">用户中心</div></a>
+            <a class="ft-set" href="set.html"><img src="style/style1/imgs/set.png" class="bottompic" /><div class="bottomText">联系我们</div></a>
+        </div>
+        <div class="layer" style="display:none;">
+            <div class="shareDiv" id="shareDiv">
+                <ul>
+                </ul>
+            </div> 
+        </div>
+        <div id="regtable" style="display:none; height:100%;"> 
+            <div class="autocenter">
+                <div style="margin-top:2em;"><div class="field">FirstName(名):</div><input id="firstname" type="text" /></div>
+                <div><div class="field">LastName（姓）:</div><input id="lastname" type="text" /></div>
+                <div><div class="field">Company（公司）:</div><input id="company" type="text" /></div>
+                <div><div class="field">E-mail(邮箱)：</div><input id="email" type="text" /></div>
+                <div class="subreg" onClick="subreg()">报名参加</div>
+            </div>
+        </div>
+    </body>
+</html>

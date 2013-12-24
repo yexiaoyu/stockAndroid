@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <title>文章评论</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style/style1/css/main.css"/>
+        <script type="text/javascript" src="js/cordova-2.3.0.js"></script>	
+        <script type="text/javascript" charset="utf-8" src="js/database.js"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript" src="js/jQuery.min.1.7.1.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/plist.js"></script>
+    </head>
+    <body>
+        <div id="header">
+        	<div class="btn-back">
+                <a class="btn-l"></a>
+                <a class="btn-c" onClick="back_pre()">返回</a>
+                <a class="btn-r"></a>
+            </div>
+            <h1 class="head-title">文章评论</h1>
+            <ul id="head-nav" class="nav">
+                <li id="82" onClick="newsList(this.id)"><span>文章</span></li>
+                <li id="83" onClick="newsList(this.id)"><span>知识库</span></li>
+                <li id="84" onClick="newsList(this.id)"><span>出版数目</span></li>
+                <li id="85" onClick="newsList(this.id)"><span>观点见解</span></li>
+            </ul>
+            <ul id="head-nav1" class="nav">
+                <li id="86" onClick="newsList(this.id)"><span>业务解决方案</span></li>
+                <li id="87" onClick="newsList(this.id)"><span>专业领域</span></li>
+                <li id="88" onClick="newsList(this.id)"><span>专有工具</span></li>
+            </ul>
+            <ul id="head-nav2" class="nav">
+                <li id="89" onClick="newsList(this.id)"><span>2013中国top50</span></li>
+                <li id="90" onClick="newsList(this.id)"><span>2012中国top50</span></li>
+                <li id="91" onClick="newsList(this.id)"><span>2011中国top50</span></li>
+                <li id="92" onClick="newsList(this.id)"><span>BrandZ top100</span></li>
+            </ul>
+        </div>
+        <div id="wrapper" style="overflow:hidden;">       	
+            <div id="scroller">
+                <div id="pullDown">
+                	<span class="pullDownIcon"></span><span class="pullDownLabel">下拉可以更新最新消息</span>
+                </div>
+                <div id='nowloading'><img src='style/style1/imgs/loading.gif'></div>
+               <ul id="thelist" style="margin-top:0px; background:white; min-height:29.5em;">
+               </ul>
+            </div>
+        </div>
+        <div id="footer">
+            <a class="ft-homeed" href="index.html"><img src="style/style1/imgs/home.png" class="bottompic" /><div class="bottomText">热点资讯</div></a>
+            <a class="ft-menu" href="insight.html"><img src="style/style1/imgs/menu.png" class="bottompic" /><div class="bottomText">财经要闻</div></a>
+            <a class="ft-info" href="solutions.html"><img src="style/style1/imgs/tools.png" class="bottompic" /><div class="bottomText">内参资讯</div></a>
+            <a class="ft-home" href="login.html"><img src="style/style1/imgs/info.png" class="bottompic" /><div class="bottomText">用户中心</div></a>
+            <a class="ft-set" href="set.html"><img src="style/style1/imgs/set.png" class="bottompic" /><div class="bottomText">联系我们</div></a>
+        </div>
+    </body>
+</html>

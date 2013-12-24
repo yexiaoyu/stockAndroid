@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>股票内参系统</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="style/style1/css/jquery.mobile-1.2.0.min.css"/>
+        <link rel="stylesheet" type="text/css" href="style/style1/css/main.css"/>
+        <script type="text/javascript" src="js/cordova-2.3.0.js"></script>	
+        <script type="text/javascript" charset="utf-8" src="js/md5.js"></script>
+        <script type="text/javascript" src="js/jQuery.min.1.7.1.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div class="btn-back">
+                <a class="btn-l"></a>
+                <a class="btn-c" onClick="back_pre()">返回</a>
+                <a class="btn-r"></a>
+            </div>
+            <h1 class="head-title">注册</h1>
+        </div>
+        <div id="login">
+            <div class="unamediv">用户名：<input id="username"  style="width:70%; display:inline" type="text" placeholder="请输入用户名" /></div>
+            <div class="upassdiv">邮　箱：<input id="email"  style="width:70%;display:inline" type="email" placeholder="请输入邮箱" /></div>
+            <div class="upassdiv">密　码：<input id="password"  style="width:70%;display:inline" type="password" placeholder="请输入密码" /></div>
+            <div class="lastdiv">确认密码：<input id="passcheck" style="width:64%;display:inline" type="password" placeholder="再次输入密码" /></div>
+            <div class="rebttn" onclick="regist()">注册</div>
+        </div>      
+    </body>
+</html>

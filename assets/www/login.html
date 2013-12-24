@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+        <title>股票内参</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="style/style1/css/jquery.mobile-1.2.0.min.css"/>
+        <link rel="stylesheet" type="text/css" href="style/style1/css/main.css"/>               
+        <script type="text/javascript" src="js/cordova-2.3.0.js"></script>	
+        <script type="text/javascript" charset="utf-8" src="js/md5.js"></script>
+        <script type="text/javascript" src="js/database.js"></script>
+        <script type="text/javascript" src="js/jQuery.min.1.7.1.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/login.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div class="btn-back">
+                <a class="btn-l"></a>
+                <a class="btn-c" onClick="back_pre()">返回</a>
+                <a class="btn-r"></a>
+            </div>
+            <h1 class="head-title">个人中心</h1>
+        </div>
+        <div id="login">
+        	<div class="loginTitle">您需要登录，才能使用用户中心的所有功能</div>
+            <div class="loginBut"><a href="logintable.html" data-transition="flip">立即登录</a></div>
+            <div class="loginTitle textleft">账户</div>
+            <div class="regis">
+            	<img class="loginres" style="margin:8px 14px 3px 8px;" src="style/style1/imgs/loginres.png" height="30" />
+                <div class="gotoreg"><a href="regist.html" data-transition="flip" style="line-height:3em;">注册新账号</a></div>
+                <img class="goarr" src="style/style1/imgs/go.jpg" height="30" style="margin-top:8px;" />
+            </div>
+            <div class="forpass">
+            	<img class="loginres" style="margin:5px 14px 5px 8px;" src="style/style1/imgs/key.png" height="30" />
+                <div class="gotoreg">忘记密码？</div>
+                <img class="goarr" src="style/style1/imgs/go.jpg" height="30"  />
+            </div>
+            <div class="loginTitle textleft">其他</div>
+            <div class="regis">
+            	<img class="loginres" style="margin:8px 14px 3px 8px;" src="style/style1/imgs/sina.png" height="30" />
+                <div class="gotoreg" style="line-height:3em;">访问官方微博</div>
+                <img class="goarr" src="style/style1/imgs/go.jpg" height="30" style="margin-top:8px;" />
+            </div>
+            <div class="forpass">
+            	<img class="loginres" style="margin:5px 14px 5px 8px;" src="style/style1/imgs/baidu.jpg" height="30" />
+                <div class="gotoreg">访问官方博客</div>
+                <img class="goarr" src="style/style1/imgs/go.jpg" height="30"  />
+            </div>
+        </div>
+        <div id="footer">
+            <a class="ft-home" onClick="Alink(1)"><img src="style/style1/imgs/home.png" class="bottompic" /><div class="bottomText">热点资讯</div></a>
+            <a class="ft-menu" onClick="Alink(2)"><img src="style/style1/imgs/menu.png" class="bottompic" /><div class="bottomText">财经要闻</div></a>
+            <a class="ft-info" onClick="Alink(3)"><img src="style/style1/imgs/tools.png" class="bottompic" /><div class="bottomText">内参资讯</div></a>
+            <a class="ft-homeed" onClick="Alink(4)"><img src="style/style1/imgs/info.png" class="bottompic" /><div class="bottomText">用户中心</div></a>
+            <a class="ft-set" onClick="Alink(5)"><img src="style/style1/imgs/set.png" class="bottompic" /><div class="bottomText">联系我们</div></a>
+        </div>
+        <script>
+        	var userId = window.localStorage.getItem('userid');
+			var userName=window.localStorage.getItem("username");
+			if(userId){
+				$(".loginTitle").first().html(userName);
+				$(".loginBut a").remove();
+				var exituser="<span onclick='checkOut()'>退出登录</div>";
+				$(".loginBut").html(exituser);
+			}
+        </script>  
+    </body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+    <head>
+        <title>股票内参系统</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="stylesheet" type="text/css" href="style/style1/css/main.css"/>
+        <script type="text/javascript" src="js/cordova-2.3.0.js"></script>		
+        <script type="text/javascript" src="js/database.js"></script>
+        <script type="text/javascript" src="js/iscroll.js"></script>
+        <script type="text/javascript" src="js/Update.js"></script>
+        <script type="text/javascript" src="js/jQuery.min.1.7.1.js"></script>       
+        <script type="text/javascript" src="js/main.js"></script> 
+        <script type="text/javascript" src="js/index.js"></script>                   
+    </head>
+    <body style="overflow:hidden;">
+        <div id="header" ontouchmove="javascript(0);">
+            <div class="head-title">
+                <div class="logo"><img src="style/style1/imgs/logo.png"></div>            
+                <div class="title">热点资讯</div>
+                <div class="refresh"><img onClick="refreshThis()" src="style/style1/imgs/refresh_top.jpg"></div>
+            </div>
+        </div>
+        <div id="wrapper" style="top:2.5em">       	
+            <div id="scroller">
+            	<div class="banner_all">
+                    <div class="titlepage" id="banner"><!--banner部分-->
+                        <div id="scroll_banner">
+                            <ul id="thelist_banner">
+                                <li><img src="style/style1/imgs/banner03.jpg" /></li>
+                                <li><img src="style/style1/imgs/banner04.jpg" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="banner_cont">
+                        <ul id="indicator">
+                            <li class="active">1</li>
+                            <li>2</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="scroll_cont">
+                    <div class="news">
+                        <div class="news_item"  style="margin-top:0em;">
+                            <div class="newsbg">
+                                <img class="newspic" src="style/style1/imgs/brandz.jpg" onClick="singlelist(3)" />
+                                <div class="brandznews" onClick="singlelist(3)" >
+                                    <div class="brandzT">BrandZ</div>
+                                    <ul id="brandzul">
+                                        <li><a href="#">· BrandZ 2013 中国 TOP50</a></li>
+                                        <li><a href="#">· BrandZ 2012 中国 TOP50</a></li>
+                                        <li><a href="#">· BrandZ 2011 中国 TOP50</a></li>
+                                        <li><a href="#">· BrandZ GLOBAL TOP 100</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news">
+                        <div class="news_item">
+                            <div class="newsbg newsbg02">
+                            	<div class="brandznews" >
+                                    <div class="brandzT newsT">新闻动态</div>
+                                    <ul id="newsul">
+                                      
+                                    </ul>
+                                </div>
+                                <img class="newspic" src="style/style1/imgs/newspic.jpg" onClick="singlelist(2)" />
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="news">
+                        <div class="news_item">
+                            <div class="newsbg newsbg03">
+                                <img class="newspic" src="style/style1/imgs/activity.jpg" onClick="singlelist(1)" />
+                                <div class="brandznews" onClick="singlelist(1)" >
+                                    <div class="brandzT">市场活动</div>
+                                    <table id="activinfo">
+                                    	<tr><td width="23%" valign="top">活动:</td><td valign="top">BrandZ 2013最具价值中国品牌50强发布会—北京站</td></tr>
+                                        <tr><td valign="top">时间:</td><td valign="top">2012年12月14日</td></tr>
+                                        <tr><td valign="top">地点:</td><td valign="top">北京东方君悦大酒店</td></tr>
+                                    </table>
+                                    <div class="wentreg">现在就注册…</div>
+                                </div>
+                            </div>
+                        </div>     
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div id="footer">
+            <a class="ft-homeed" href="index.html"><img src="style/style1/imgs/home.png" class="bottompic" /><div class="bottomText">热点资讯</div></a>
+            <a class="ft-menu" href="insight.html"><img src="style/style1/imgs/menu.png" class="bottompic" /><div class="bottomText">财经要闻</div></a>
+            <a class="ft-info" href="solutions.html"><img src="style/style1/imgs/tools.png" class="bottompic" /><div class="bottomText">内参资讯</div></a>
+            <a class="ft-home" href="login.html"><img src="style/style1/imgs/info.png" class="bottompic" /><div class="bottomText">用户中心</div></a>
+            <a class="ft-set" href="set.html"><img src="style/style1/imgs/set.png" class="bottompic" /><div class="bottomText">联系我们</div></a>            
+        </div> 
+        <div id="downall" class="downAll"><div id="downbutton" onClick="buttonShow()"><img id="arr" class="downarr" src="style/style1/imgs/downarr.png"></div><div id="downNow" onClick="downBegin()">下载离线数据</div></div>        
+        <div id="shadow">
+        	<div class="downloading">下载中，请稍候……</div>
+        	<div id="proccess">
+                <div id="proccessbg">
+                    <div id="proin">
+                        <img src="style/style1/imgs/proccess.png" class="propic" />
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </body>
+</html>

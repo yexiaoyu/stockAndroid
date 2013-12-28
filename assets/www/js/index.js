@@ -7,10 +7,11 @@ function onDeviceReady(){
 	createDatabase();
 	connectStatus();
 	newsinfo();
-	checkUpdate();
+	//checkUpdate();
 }
 function newsinfo(){
 	var viewMode = window.localStorage.getItem('mode');
+	alert("viewMode:"+viewMode);
 	if(viewMode == 1){
         var parameter = {enews: 'newsindex', start: 0, length: 5};
         sentAllArticlesRequest(PHPURL,'indexnews',parameter);
@@ -19,7 +20,8 @@ function newsinfo(){
         ap.dbFindAll(DBNAME, findAllCB, '*', sqlWhere);
 	}
 }
-function indexnews(dataJson){	
+function indexnews(dataJson){
+	alert("indexnews...."+dataJson);
     if (dataJson.articles) {
         showindexnews(dataJson.articles);     //显示信息
         for (var i in dataJson.articles) {   //插入数据库信息

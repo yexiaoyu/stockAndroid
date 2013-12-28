@@ -15,13 +15,11 @@ app.prototype.dbConnect = function(dbName, dbVersion, dbDesc, dbSize) {
             console.log('Databases are not supported in this browser.');
             return false;
         } else {
-            dbName = dbName ? dbName : 'ROYO_DB';
+            dbName = dbName ? dbName : 'STOCK';
             dbVersion = dbVersion ? dbVersion : '1.0';
-            dbDesc = dbDesc ? dbDesc : 'ROYO_DB for User Mobile';
+            dbDesc = dbDesc ? dbDesc : 'STOCK for User Mobile';
             dbSize = dbSize ? dbSize : (2 * 1024 * 1024);
-
-            this.DB = openDatabase(dbName, dbVersion, dbDesc, dbSize);
-
+            this.DB = window.openDatabase(dbName, dbVersion, dbDesc, dbSize);
             return true;
         }
     } catch (e) {

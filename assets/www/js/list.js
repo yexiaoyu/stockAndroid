@@ -14,12 +14,12 @@ function onDeviceReady(){
 
 function autoselect(){
 	viewClass = window.localStorage.getItem("viewClass");
-	if(viewClass != null && !""==viewClass){
+	/*if(viewClass != null && !""==viewClass){
 		newsList(viewClass);
 	}else{
 		newsList(7);
-	}
-	/*if(viewClass==83){
+	}*/
+	if(viewClass==83){
 		newsList(83);
 	}else if(viewClass==84){
 		newsList(84);
@@ -27,7 +27,7 @@ function autoselect(){
 		newsList(85);
 	}else{
 		newsList(82);
-	}*/
+	}
 }
 
 

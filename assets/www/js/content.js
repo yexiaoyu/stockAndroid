@@ -41,20 +41,19 @@ function conShow(str){
 function autoselect(){
 	viewClass = window.localStorage.getItem("viewClass");
 	$(".nav li span").removeClass("selbo");
-	//if(viewClass==82||viewClass==83||viewClass==84||viewClass==85){
-	if(viewClass==7||viewClass==8||viewClass==9){
+	if(viewClass==82||viewClass==83||viewClass==84||viewClass==85){
 		$("#head-nav").css("display","-webkit-box");
 		$("#head-nav1").css("display","none");
 		$("#head-nav2").css("display","none");
 		$("#indexbot").addClass("ft-home");
 		$("#insightbot").addClass("ft-menued");
 		$("#solutionbot").addClass("ft-info");
-		if(viewClass==7){
-			$("#7 span").addClass("selbo");
-		}else if(viewClass==8){
-			$("#8 span").addClass("selbo");
-		}else if(viewClass==9){
-			$("#9 span").addClass("selbo");
+		if(viewClass==82){
+			$("#82 span").addClass("selbo");
+		}else if(viewClass==83){
+			$("#83 span").addClass("selbo");
+		}else if(viewClass==84){
+			$("#84 span").addClass("selbo");
 		}
 	}else if(viewClass==86||viewClass==87||viewClass==88){
 		$("#head-nav").css("display","none");

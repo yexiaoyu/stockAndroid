@@ -9,15 +9,12 @@ var selectNum = Array();    //当前类查询次数
 function newsList(classId) {
     viewClass = classId;	
 	$(".nav li span").removeClass("selbo");
-	if(viewClass==7){
-		//$("#82 span").addClass("selbo");
-		$("#7 span").addClass("selbo");
-	}else if(viewClass==8){
-		//$("#83 span").addClass("selbo");
-		$("#8 span").addClass("selbo");
-	}else if(viewClass==9){
-		//$("#84 span").addClass("selbo");
-		$("#9 span").addClass("selbo");
+	if(viewClass==82){
+		$("#82 span").addClass("selbo");
+	}else if(viewClass==83){
+		$("#83 span").addClass("selbo");
+	}else if(viewClass==84){
+		$("#84 span").addClass("selbo");
 	}//else if(viewClass==85){
 	//	$("#85 span").addClass("selbo");
 	//}

@@ -6,16 +6,17 @@ function onDeviceReady(){
 	document.addEventListener("backbutton", quit, false);
 	createDatabase();
 	connectStatus();
-	newsinfo();
+	newsinfo();//要闻资讯
+	updowninfo();//涨停板掘金
 	//checkUpdate();
 }
 function newsinfo(){
 	var viewMode = window.localStorage.getItem('mode');
 	if(viewMode == 1){
-        var parameter = {reqtype: 5, start: 0, length: 5};//要闻资讯 = 5
+        var parameter = {reqtype: 93, start: 0, length: 5};//要闻资讯 = 93
         sentAllArticlesRequest(PHPURL,'indexnews',parameter);
     }else{
-		var sqlWhere = " where type in(5) order by modifyTime desc limit 0,5";
+		var sqlWhere = " where type = 93 order by modifyTime desc limit 0,5";
         ap.dbFindAll(DBNAME, findAllCB, '*', sqlWhere);
 	}
 }
@@ -29,6 +30,7 @@ function indexnews(dataJson){
         navigator.notification.alert("该栏目暂时没有信息", "", "提示", "");
     }  
 }
+//要闻资讯
 function showindexnews(result,isJson) {
 	var isJson = isJson || 0; //0 是json格式 ,1 不是
     if(isJson == 1){
@@ -43,6 +45,41 @@ function showindexnews(result,isJson) {
     }
     document.getElementById('newsul').innerHTML += mainUlHtml;
 }
+function updowninfo(){
+	var viewMode = window.localStorage.getItem('mode');
+	if(viewMode == 1){
+        var parameter = {reqtype: 94, start: 0, length: 5};//涨停板= 94
+        sentAllArticlesRequest(PHPURL,'indexupdown',parameter);
+    }else{
+		var sqlWhere = " where type = 94 order by modifyTime desc limit 0,5";
+        ap.dbFindAll(DBNAME, findAllCB, '*', sqlWhere);
+	}
+}
+function indexupdown(dataJson){
+    if (dataJson.articles) {
+        showindexupdown(dataJson.articles);     //显示信息
+        for (var i in dataJson.articles) {   //插入数据库信息
+            ap.dbInsert(DBNAME, dataJson.articles[i],"");
+        }
+    } else {
+        navigator.notification.alert("该栏目暂时没有信息", "", "提示", "");
+    }  
+}
+//涨停板
+function showindexupdown(result,isJson) {
+	var isJson = isJson || 0; //0 是json格式 ,1 不是
+    if(isJson == 1){
+        var result = pushJson(result);
+    }
+    var mainUlHtml = '';
+    for (var i = 0; i < result.length; i++) {
+        mainUlHtml +=
+                '<li><a href="content.html" onclick="mainLiClick(' + result[i].id + ')">' +
+                '· ' +result[i].title.substr(0,10)+'…'+
+                '</a></li>';
+    }
+    document.getElementById('updownul').innerHTML += mainUlHtml;
+}
 function findAllCB(result){
     if (result.rows.length == 0) {
 		navigator.notification.alert("暂时缺少离线信息", "", "提示", "");
@@ -53,6 +90,7 @@ function findAllCB(result){
 //记录本条文章ID
 function mainLiClick(id) {
     window.localStorage.setItem("id", id);
+    window.localStorage.setItem("viewClass",93)
 }
 //一键下载功能
 var downtime;

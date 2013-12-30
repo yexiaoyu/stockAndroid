@@ -648,6 +648,9 @@ a{
 .brandznews ul#newsul{
 	display:block;
 	margin-left:0.5em;}
+.brandznews ul#updownul{
+	display:block;
+	margin-left:0.5em;}
 .brandznews ul#brandzul li {
 	border-bottom:none;
 	border-top:none;
@@ -656,11 +659,19 @@ a{
 	border-bottom:none;
 	border-top:none;
 	background-color:#243a87;}
+.brandznews ul#updownul li {
+	border-bottom:none;
+	border-top:none;
+	background-color:#4e2b17;}
 .brandznews ul li a{
 	font-size:0.6em;
 	line-height:1em;
 	color:white;}
 .brandznews ul#newsul li a{
+	font-size:0.6em;
+	line-height:0.8em;
+	color:white;}
+.brandznews ul#updownul li a{
 	font-size:0.6em;
 	line-height:0.8em;
 	color:white;}

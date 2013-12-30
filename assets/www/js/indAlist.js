@@ -9,15 +9,19 @@ var selectNum = Array();    //当前类查询次数
 function newsList(classId) {
     viewClass = classId;	
 	$(".nav li span").removeClass("selbo");
-	if(viewClass==82){
-		$("#82 span").addClass("selbo");
-	}else if(viewClass==83){
-		$("#83 span").addClass("selbo");
-	}else if(viewClass==84){
-		$("#84 span").addClass("selbo");
-	}else if(viewClass==85){
-		$("#85 span").addClass("selbo");
-	}else if(viewClass==86){
+	if(viewClass==7){
+		//$("#82 span").addClass("selbo");
+		$("#7 span").addClass("selbo");
+	}else if(viewClass==8){
+		//$("#83 span").addClass("selbo");
+		$("#8 span").addClass("selbo");
+	}else if(viewClass==9){
+		//$("#84 span").addClass("selbo");
+		$("#9 span").addClass("selbo");
+	}//else if(viewClass==85){
+	//	$("#85 span").addClass("selbo");
+	//}
+	else if(viewClass==86){
 		$("#86 span").addClass("selbo");
 	}else if(viewClass==87){
 		$("#87 span").addClass("selbo");
@@ -45,7 +49,8 @@ function obtainData(){
 	var viewClass = window.localStorage.getItem('viewClass');
     if(viewMode == 1){
 		var startnum = firstRowFun(viewClass);
-        var parameter = {enews: 'list', category: viewClass, start: startnum, length: listRows};
+        //var parameter = {enews: 'list', category: viewClass, start: startnum, length: listRows};
+        var parameter = {reqtype: viewClass, start: startnum, length: listRows};
         sentAllArticlesRequest(PHPURL,'onLineJsonp',parameter);
     } else {
         var classIdstr = '';
@@ -93,9 +98,9 @@ function showDataList(result,isJson) {
         mainUlHtml +=
                 '<li><a href="content.html" onclick="mainLiClick(' + result[i].id + ')">' +
                 '<h4>' + result[i].title + '</h4>' +
-                '<p class="main-smalltext">' + result[i].smalltext.substr(0,50) + '</p>' +
-                '<p class="main-time">时间:' + result[i].newstime + '</p>' +
-				'<p class="main-time" style="display:none">' + result[i].newstimeNum + '</p>' +
+                '<p class="main-smalltext">' + result[i].shortContent.substr(0,50) + '</p>' +
+                '<p class="main-time">时间:' + result[i].modifyTime + '</p>' +
+				//'<p class="main-time" style="display:none">' + result[i].newstimeNum + '</p>' +
                 "</a></li>";
     }
 	$('#nowloading').remove();

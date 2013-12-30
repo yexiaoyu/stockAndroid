@@ -15,15 +15,16 @@ function contentOnLoad(){
 }
 
 //内容显示
-function conShow(str){	
+function conShow(str){
     var rst = pushJson(str);
     $$('thelist').innerHTML = 
             '<h3 class="conTit">'+ rst[0].title + '</h3>' +
-            '<div class="conInfo">时间:' + rst[0].newstime + '</div>' +
+            '<div class="conInfo">时间:' + rst[0].modifyTime + '</div>' +
 			'<hr />'+
-            '<div class="conText">' + rst[0].newstext + '</div>';
+            '<div class="conText">' + rst[0].content + '</div>';
+    //alert($$('thelist').innerHTML);
 	//分享按钮填充
-	$$('shareDiv').innerHTML = 
+	/*$$('shareDiv').innerHTML = 
         	'<ul>' + 
             	'<li><a href="sinaweibo.html">新浪微博分享</li>' +
 				'<li><a href="tengxunweibo.html">腾讯微博分享</a></li>' + 
@@ -31,7 +32,7 @@ function conShow(str){
                 '<li><a href="mailto:?subject=' + rst[0].title + '&body=好文分享：来自 MillwardBrown 的文章' + rst[0].title +  rst[0].classpaths + '">E-mail分享</a></li>' + 
                 '<li onclick="copypaste();">复制链接</li>' + 
 				'<li class="closeLi"><div class="closeShare" onclick="closeShare();">取消</div></li>'+ 
-            '</ul>';	
+            '</ul>';*/	
 	window.localStorage.setItem('con_id',rst[0].classpaths);
 	window.localStorage.setItem('con_text',rst[0].title + rst[0].classpaths);  
 	clearA();	
@@ -40,21 +41,20 @@ function conShow(str){
 function autoselect(){
 	viewClass = window.localStorage.getItem("viewClass");
 	$(".nav li span").removeClass("selbo");
-	if(viewClass==82||viewClass==83||viewClass==84||viewClass==85){
+	//if(viewClass==82||viewClass==83||viewClass==84||viewClass==85){
+	if(viewClass==7||viewClass==8||viewClass==9){
 		$("#head-nav").css("display","-webkit-box");
 		$("#head-nav1").css("display","none");
 		$("#head-nav2").css("display","none");
 		$("#indexbot").addClass("ft-home");
 		$("#insightbot").addClass("ft-menued");
 		$("#solutionbot").addClass("ft-info");
-		if(viewClass==82){
-			$("#82 span").addClass("selbo");
-		}else if(viewClass==83){
-			$("#83 span").addClass("selbo");
-		}else if(viewClass==84){
-			$("#84 span").addClass("selbo");
-		}else if(viewClass==85){
-			$("#85 span").addClass("selbo");
+		if(viewClass==7){
+			$("#7 span").addClass("selbo");
+		}else if(viewClass==8){
+			$("#8 span").addClass("selbo");
+		}else if(viewClass==9){
+			$("#9 span").addClass("selbo");
 		}
 	}else if(viewClass==86||viewClass==87||viewClass==88){
 		$("#head-nav").css("display","none");

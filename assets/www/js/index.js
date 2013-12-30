@@ -11,17 +11,15 @@ function onDeviceReady(){
 }
 function newsinfo(){
 	var viewMode = window.localStorage.getItem('mode');
-	alert("viewMode:"+viewMode);
 	if(viewMode == 1){
-        var parameter = {enews: 'newsindex', start: 0, length: 5};
+        var parameter = {reqtype: 5, start: 0, length: 5};//要闻资讯 = 5
         sentAllArticlesRequest(PHPURL,'indexnews',parameter);
     }else{
-		var sqlWhere = " where classid in(80) order by newstime desc limit 0,5";
+		var sqlWhere = " where type in(5) order by modifyTime desc limit 0,5";
         ap.dbFindAll(DBNAME, findAllCB, '*', sqlWhere);
 	}
 }
 function indexnews(dataJson){
-	alert("indexnews...."+dataJson);
     if (dataJson.articles) {
         showindexnews(dataJson.articles);     //显示信息
         for (var i in dataJson.articles) {   //插入数据库信息

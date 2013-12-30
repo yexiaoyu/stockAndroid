@@ -6,7 +6,8 @@ var viewClass;                 //记录当前信息分类
 var myScroll,scroll_banner,pullDownEl, pullDownOffset,generatedCount = 0;
 var VERSION=2.5;               //记录当前app的版本
 var DBCONNECT = ap.dbConnect('ROYO_DB','1.0','ROYO_DB for User Mobile',2 * 1024 * 1024); //本地数据库链接
-var DBNAME="mbnews";             //本地数据库名称
+//var DBNAME="mbnews";             //本地数据库名称
+var DBNAME="stock";             //本地数据库名称
 //var PHPURL="http://brandnews.chinamillwardbrown.cn/e/phone/index.php";  //远程服务器php文件地址
 var PHPURL="http://192.168.1.104:8080/stock/android/index.do";  //远程服务器php文件地址
 var SIGNUPID=6;
@@ -18,14 +19,11 @@ function createDatabase(){
     if (DBCONNECT === true) {
         ap.dbDefineTable(DBNAME, {
             id: "INTEGER PRIMARY KEY NOT NULL",
-            classid: "INTEGER",
             title: "VARCHAR",
-            smalltext: "TEXT",
-            newstext: "TEXT",
-            newstime: "DATE",
-			newstimeNum: "INTEGER",
-            lastdotime: "TIME",
-			classpaths: "VARCHAR"
+            shortContent: "TEXT",
+            content: "TEXT",
+            modifyTime: "DATE",
+			type: "VARCHAR"
         });
     } else {
         navigator.notification.alert("数据库连接失败","", "提示","");

@@ -158,7 +158,7 @@ a{
 .main-smalltext{
 	color:#666;}
 .main-smalltext:after{
-    content:"...";}
+    /*content:"...";*/}
 .main-time{
     text-align: right;
 	padding-top:0.2em;}
@@ -664,15 +664,15 @@ a{
 	border-top:none;
 	background-color:#4e2b17;}
 .brandznews ul li a{
-	font-size:0.6em;
+	font-size:0.8em;
 	line-height:1em;
 	color:white;}
 .brandznews ul#newsul li a{
-	font-size:0.6em;
+	font-size:0.8em;
 	line-height:0.8em;
 	color:white;}
 .brandznews ul#updownul li a{
-	font-size:0.6em;
+	font-size:0.8em;
 	line-height:0.8em;
 	color:white;}
 .brandzT{
@@ -693,7 +693,7 @@ a{
 	text-decoration:underline;
 	color:white;
 	text-align:right;
-	font-size:0.6em;
+	font-size:0.8em;
 	padding-right:0.6em;
 	margin-top:1em;}
 .inputreg{

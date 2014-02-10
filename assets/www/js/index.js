@@ -12,8 +12,9 @@ function onDeviceReady(){
 }
 function newsinfo(){
 	var viewMode = window.localStorage.getItem('mode');
+	//alert("mode="+viewMode);
 	if(viewMode == 1){
-        var parameter = {reqtype: 93, start: 0, length: 5};//要闻资讯 = 93
+        var parameter = {reqtype: 93, start: 0, length: 5};//股市直播 = 93
         sentAllArticlesRequest(PHPURL,'indexnews',parameter);
     }else{
 		var sqlWhere = " where type = 93 order by modifyTime desc limit 0,5";
@@ -143,13 +144,17 @@ function offLine(){//开启离线浏览功能,这个功能要丰富
 	}
 }
 
-function singlelist(num){
+function singlelist(num,viewClass){
 	if(num==1){
 		window.location="activity.html";
 	}else if(num==2){
 		window.location="newslist.html";
 	}else if(num==3){
 		window.location="brandz.html";
+		if(viewClass == null || "" == viewClass){
+			viewClass = 89;
+		}
+		window.localStorage.setItem("viewClass",viewClass)
 	}
 }
 //检查更新

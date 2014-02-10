@@ -9,7 +9,8 @@ var DBCONNECT = ap.dbConnect('ROYO_DB','1.0','ROYO_DB for User Mobile',2 * 1024 
 //var DBNAME="mbnews";             //本地数据库名称
 var DBNAME="stock";             //本地数据库名称
 //var PHPURL="http://brandnews.chinamillwardbrown.cn/e/phone/index.php";  //远程服务器php文件地址
-var PHPURL="http://192.168.1.104:8080/stock/android/index.do";  //远程服务器php文件地址
+var PHPURL="http://192.168.0.1:8080/stock/android/index.do";  //远程服务器地址
+var STOCKURL="http://192.168.0.1:8080";  //远程服务器地址
 var SIGNUPID=6;
 
 /*创建数据库表*/

@@ -17,12 +17,12 @@ function contentOnLoad(){
 //内容显示
 function conShow(str){
     var rst = pushJson(str);
+    alert("详情：" +rst[0].content);
     $$('thelist').innerHTML = 
             '<h3 class="conTit">'+ rst[0].title + '</h3>' +
             '<div class="conInfo">时间:' + rst[0].modifyTime + '</div>' +
 			'<hr />'+
             '<div class="conText">' + rst[0].content + '</div>';
-    //alert($$('thelist').innerHTML);
 	//分享按钮填充
 	/*$$('shareDiv').innerHTML = 
         	'<ul>' + 
@@ -168,19 +168,22 @@ function clearA(){
 	var fullsrc;
 	for(var i=0;i<=imgs.length;i++){
 		var imgsrc=$(imgs[i]).attr("src");
-		var imgsrcString=imgsrc.toString();
-		var imgsrclength=imgsrcString.length-1;
-		srcend=imgsrc.substring(1,imgsrclength);
-		fullsrc="http://brandnews.chinamillwardbrown.cn"+srcend;
-		$(imgs[i]).attr("src",fullsrc);
-		$(imgs[i]).attr("width","100%");
-		$("#thelist img").bind('click',function(){
-			window.localStorage.setItem("imgsrc",this.src);
-			window.location="imgshow.html";
-		});
-		$("#thelist img").bind('load',function(){
-			myScroll.refresh();
-		});
+		if(imgsrc != null && imgsrc != undefined){
+//			var imgsrcString=imgsrc.toString();
+//			var imgsrclength=imgsrcString.length-1;
+//			srcend=imgsrc.substring(1,imgsrclength);
+//			fullsrc="http://brandnews.chinamillwardbrown.cn"+srcend;
+			fullsrc=STOCKURL+imgsrc;
+			$(imgs[i]).attr("src",fullsrc);
+			$(imgs[i]).attr("width","100%");
+			$("#thelist img").bind('click',function(){
+				window.localStorage.setItem("imgsrc",this.src);
+				window.location="imgshow.html";
+			});
+			$("#thelist img").bind('load',function(){
+				myScroll.refresh();
+			});
+		}
 	}
 }
 

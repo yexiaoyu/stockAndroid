@@ -8,7 +8,7 @@ function onDeviceReady(){
 	connectStatus();
 	newsinfo();//要闻资讯
 	updowninfo();//涨停板掘金
-	//checkUpdate();
+	checkUpdate();
 }
 function newsinfo(){
 	var viewMode = window.localStorage.getItem('mode');
@@ -159,74 +159,87 @@ function singlelist(num,viewClass){
 }
 //检查更新
 function checkUpdate(){
-var runtime=window.localStorage.getItem("runnow");
-if(runtime!=1){
-	//alert("asdfasdf");
-	$.get("http://www.ipuapp.com/mobile-apps/www-millwardbrown-com/version_android.php", function(data){
-		if(VERSION<data){
-			window.localStorage.setItem("runnow",1);
-			navigator.notification.confirm("发现应用有新版本", downApp, "是否下载", "否,是");
-		}
-		function downApp(result){
-			if(result==2){
-				var mainVersion=data.substr(0,1);
-				var Minorversion=data.substr(2,1);
-				var sourcedir1="mb";//下载一级目录
-				var sourcedir2="update";//下载二级目录
-				source="www-millwardbrown-com-v"+mainVersion+"-"+Minorversion+".apk";
-				url="http://www.ipuapp.com/mobile-apps/www-millwardbrown-com/www-millwardbrown-com-v"+mainVersion+"-"+Minorversion+".apk";
-				window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){     
-					fileSystem.root.getDirectory(
-						sourcedir,
-						{create:true,exclusive:false},
-						function(entrydir){ 
-							entrydir.getDirectory(
-								sourcedir2,
-								{create:true,exclusive:false},
-								function(entrydir){
-									entrydir.getFile(
-										source,
-										{create:true,exclusive:false}, 
-										function(parent){
-											var fileTransfer = new FileTransfer(); 
-											var uri = encodeURI(url);
-											fileTransfer.onprogress = function(progressEvent) {								
-												if (progressEvent.lengthComputable) {
-													var percentLoaded = Math.round(100 * (progressEvent.loaded / progressEvent.total));
-													var progressbarWidth=percentLoaded + "%";
-													if(percentLoaded>=99){
-														$("#shadow").hide();
-													}else{
-														$("#shadow").fadeIn(500);
-													}
-													$("#proin").css("width",progressbarWidth);
-												} else {
-													loadingStatus.increment();
-												}
-											};
-											fileTransfer.download(
-												uri,
-												parent.fullPath,
-												function(entry){ 
-													//alert(entry.fullPath);
-													window.plugins.update.openFile(entry.fullPath,null,null);
-												},
-												function(error) {alert("下载失败")}
-											);
-										},
-										function(){alert("文件下载失败")}
-									);
-								},
-								function(){alert("创建二级栏目失败")}
-							);
-						},
-						function(){alert("创建一级目录失败");}
-					); 
-				}, function(evt){  
-					console.log("加载文件系统出现错误");  
-				});
+	var runtime=window.localStorage.getItem("runnow");
+	if(runtime!=1){
+		$.get(VERSIONURL+"?clientType=1&version="+VERSION, function(data){
+			if(data != null && data != "" && "{}" != data){
+				data = $.parseJSON(data);
+				window.localStorage.setItem("runnow",1);
+				navigator.notification.confirm("发现应用有新版本", downApp, "是否下载", "否,是");
+				function downApp(result){
+					if(result==2){
+						navigator.app.loadUrl(data.url,{ openExternal:true });
+//						window.cordova.exec()
+					}else if(data.upgradeType == 1){
+						window.localStorage.setItem("runnow","");
+						navigator.app.exitApp();
+					}
+				}
 			}
-		}
+//		if(VERSION<data){
+//			window.localStorage.setItem("runnow",1);
+//			navigator.notification.confirm("发现应用有新版本", downApp, "是否下载", "否,是");
+//		}
+//		function downApp(result){
+//			if(result==2){
+//				var mainVersion=data.substr(0,1);
+//				var Minorversion=data.substr(2,1);
+//				var sourcedir1="mb";//下载一级目录
+//				var sourcedir2="update";//下载二级目录
+//				source="www-millwardbrown-com-v"+mainVersion+"-"+Minorversion+".apk";
+//				url="http://www.ipuapp.com/mobile-apps/www-millwardbrown-com/www-millwardbrown-com-v"+mainVersion+"-"+Minorversion+".apk";
+//				window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fileSystem){     
+//					fileSystem.root.getDirectory(
+//						sourcedir,
+//						{create:true,exclusive:false},
+//						function(entrydir){ 
+//							entrydir.getDirectory(
+//								sourcedir2,
+//								{create:true,exclusive:false},
+//								function(entrydir){
+//									entrydir.getFile(
+//										source,
+//										{create:true,exclusive:false}, 
+//										function(parent){
+//											var fileTransfer = new FileTransfer(); 
+//											var uri = encodeURI(url);
+//											fileTransfer.onprogress = function(progressEvent) {								
+//												if (progressEvent.lengthComputable) {
+//													var percentLoaded = Math.round(100 * (progressEvent.loaded / progressEvent.total));
+//													var progressbarWidth=percentLoaded + "%";
+//													if(percentLoaded>=99){
+//														$("#shadow").hide();
+//													}else{
+//														$("#shadow").fadeIn(500);
+//													}
+//													$("#proin").css("width",progressbarWidth);
+//												} else {
+//													loadingStatus.increment();
+//												}
+//											};
+//											fileTransfer.download(
+//												uri,
+//												parent.fullPath,
+//												function(entry){ 
+//													//alert(entry.fullPath);
+//													window.plugins.update.openFile(entry.fullPath,null,null);
+//												},
+//												function(error) {alert("下载失败")}
+//											);
+//										},
+//										function(){alert("文件下载失败")}
+//									);
+//								},
+//								function(){alert("创建二级栏目失败")}
+//							);
+//						},
+//						function(){alert("创建一级目录失败");}
+//					); 
+//				}, function(evt){  
+//					console.log("加载文件系统出现错误");  
+//				});
+//			}
+//		}
 	});
 }
 }

@@ -18,15 +18,13 @@
                 <a class="btn-c" onClick="back_pre()">返回</a>
                 <a class="btn-r"></a>
             </div>
-            <h1 class="head-title">注册</h1>
+            <h1 class="head-title">重置</h1>
         </div>
-        <div id="login">
-            <div class="unamediv">用户名：<input id="username"  style="width:70%; display:inline" type="text" placeholder="请输入用户名" /></div>
-			<div class="upassdiv">手机号：<input id="phone"  style="width:70%;display:inline" type="email" placeholder="请输入手机号" /></div>
-            <div class="upassdiv">邮　箱：<input id="email"  style="width:70%;display:inline" type="email" placeholder="请输入邮箱" /></div>
-            <div class="upassdiv">密　码：<input id="password"  style="width:70%;display:inline" type="password" placeholder="请输入密码" /></div>
-            <div class="lastdiv">确认密码：<input id="passcheck" style="width:64%;display:inline" type="password" placeholder="再次输入密码" /></div>
-            <div class="rebttn" onclick="regist()">注册</div>
+        <div id="reset">
+			<div class="oldpassdiv">原密码：<input id="oldpassword"  style="width:70%;display:inline" type="password" placeholder="请输入原密码" /></div>
+            <div class="upassdiv">新密码：<input id="passwordnew"  style="width:70%;display:inline" type="password" placeholder="请输入新密码" /></div>
+            <div class="lastdiv">确认新密码：<input id="passnewcheck" style="width:64%;display:inline" type="password" placeholder="再次输入新密码" /></div>			
+            <div class="rebttn" onclick="reset()">提交</div>
         </div>      
     </body>
 </html>

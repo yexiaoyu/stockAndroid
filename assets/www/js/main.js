@@ -4,13 +4,24 @@ var ap = new app();            //实例化数据库类
 var listRows = 10;             //每页显示数目
 var viewClass;                 //记录当前信息分类
 var myScroll,scroll_banner,pullDownEl, pullDownOffset,generatedCount = 0;
-var VERSION=2.5;               //记录当前app的版本
+var VERSION=1.0;               //记录当前app的版本
 var DBCONNECT = ap.dbConnect('ROYO_DB','1.0','ROYO_DB for User Mobile',2 * 1024 * 1024); //本地数据库链接
 //var DBNAME="mbnews";             //本地数据库名称
 var DBNAME="stock";             //本地数据库名称
 //var PHPURL="http://brandnews.chinamillwardbrown.cn/e/phone/index.php";  //远程服务器php文件地址
-var PHPURL="http://192.168.0.1:8080/stock/android/index.do";  //远程服务器地址
-var STOCKURL="http://192.168.0.1:8080";  //远程服务器地址
+//var STOCKURL="http://192.168.1.103:8080";  //ueditor服务器地址
+//var BASEURL="http://192.168.1.103:8080/stock";  //服务器地址
+var STOCKURL="http://zhhttest.gotoip1.com";  //ueditor服务器地址
+var BASEURL="http://zhhttest.gotoip1.com";  //服务器地址
+var PHPURL=BASEURL+"/android/index.do";  //拉取新闻服务器地址
+var VERSIONURL=BASEURL+"/android/getLatestVersion.do";  //版本服务器地址
+var LONGINURL=BASEURL+"/android/androidLogin.do";  //登录服务器地址
+var LONGINAJAXURL=BASEURL+"/android/androidAjaxLogin.do";  //重置密码验证服务器地址
+var CHECKUSERNAMEURL=BASEURL+"/util/checkUserNameValid.do";  //检测用户名服务器地址
+var REGISTURL=BASEURL+"/android/androidRegist.do";  //注册服务器地址
+var RESETURL=BASEURL+"/android/androidReset.do";  //重置密码服务器地址
+//var PHPURL="http://zhhttest.gotoip1.com/android/index.do";  //远程服务器地址
+//var STOCKURL="http://zhhttest.gotoip1.com";  //远程服务器地址
 var SIGNUPID=6;
 
 /*创建数据库表*/
@@ -44,6 +55,35 @@ function $$(id) {
  * @parameter {Object}参数 例:{category:"20,21,22,23",length:10,start:0}
  */
 function sentAllArticlesRequest(url, callback, parameter) {
+	//先判断登录
+	var userId = window.localStorage.getItem('userid');
+	if(userId != null && "" != userId){
+		var grade = window.localStorage.getItem("grade");
+		if(parameter["reqtype"] == 87){//普通资讯
+			if(grade == "LEVELONE"){
+				alert("请升级为白金会员");
+				newsList(86);//跳到最新资讯
+				return;
+			}
+		}else if(parameter["reqtype"] == 88){//VIP资讯
+			if(grade != "LEVELTHREE"){
+				alert("请升级为VIP会员");
+				newsList(86);
+				return;
+			}
+		}
+	    sentLoginRequest(url, callback, parameter);
+	}else{
+		toast("请先登录");
+		window.location.href = "login.html"
+	}
+}
+/* Jsonp
+ * @url {String} 远程地址  不用登录的
+ * @callback {String} 回调函数名
+ * @parameter {Object}参数 例:{category:"20,21,22,23",length:10,start:0}
+ */
+function sentLoginRequest(url, callback, parameter) {
     var paraStr = '';
     if (parameter) {
         for (i in parameter) {

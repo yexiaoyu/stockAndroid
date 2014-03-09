@@ -341,7 +341,7 @@ a{
 	background:rgba(0,0,0,0.6);}
 
 /* -----------------  login ---------------------------  */
-#login{
+#login,#reset{
 	background:#d7dce1;
     padding: 0.5em 1.5em;
 	margin-top:2.5em;
@@ -368,7 +368,7 @@ a{
 	overflow:hidden;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;}
-.forpass{
+.forpass,.setpass{
 	background:white;
 	zoom:1;
 	overflow:hidden;
@@ -507,7 +507,7 @@ a{
 	line-height:3em;
 	border:#999 solid 1px;
 	padding-left:0.4em;}
-.upassdiv{
+.upassdiv,.oldpassdiv{
 	line-height:3em;
 	background:white;
 	border:#999 solid 1px;

@@ -17,7 +17,7 @@ function contentOnLoad(){
 //内容显示
 function conShow(str){
     var rst = pushJson(str);
-    alert("详情：" +rst[0].content);
+   // alert("详情：" +rst[0].content);
     $$('thelist').innerHTML = 
             '<h3 class="conTit">'+ rst[0].title + '</h3>' +
             '<div class="conInfo">时间:' + rst[0].modifyTime + '</div>' +

@@ -1,6 +1,12 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady(){	
-	document.addEventListener("backbutton", back_pre, false);
+	//document.addEventListener("backbutton", back_pre, false);
+	var userId = window.localStorage.getItem('userid');
+	if(userId != null && "" != userId){
+		document.addEventListener("backbutton", back_pre, false);
+	}else{
+		document.addEventListener("backbutton", quit, false);
+	}
 }		
 function login(){
 	var connection=checkConnection();
